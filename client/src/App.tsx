@@ -46,19 +46,21 @@ function App() {
     }
   }
   return (
-      <div className="container">
-        <h1>Web Scraper</h1>
-        <ScrapeForm handleSubmit={handleSubmit} query={query} setQuery={setQuery} setUrls={setUrls} urls={urls} />
+      <div className="App">
+        <div className="container">
+          <h1>Web Scraper</h1>
+          <ScrapeForm handleSubmit={handleSubmit} query={query} setQuery={setQuery} setUrls={setUrls} urls={urls} />
 
-        <div className="results">
-          {results.map((item, id)=>(
-            <div key={id} className="card">
+          <div className="results">
+            {results.map((item, id)=>(
+              <div key={id} className="card">
 
-              <a href={item.url} target="_blank">
-                {item.name || item.url}
-              </a>
-            </div>
-          ))}
+                <a href={item.url} target="_blank">
+                  {item.name || item.url}
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
   )

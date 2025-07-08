@@ -40,6 +40,7 @@ function App() {
       //console.log(payload);
         const response = await scrapeCompanies(payload);
         setResults(response);
+        //console.dir(results);
     }
     catch(err) {
         console.error(err);
@@ -50,18 +51,19 @@ function App() {
         <div className="container">
           <h1>Web Scraper</h1>
           <ScrapeForm handleSubmit={handleSubmit} query={query} setQuery={setQuery} setUrls={setUrls} urls={urls} />
-
-          <div className="results">
-            {results.map((item, id)=>(
-              <div key={id} className="card">
-
-                <a href={item.url} target="_blank">
-                  {item.name || item.url}
-                </a>
-              </div>
-            ))}
-          </div>
         </div>
+        <div className="results">
+          <h2><center>Results</center></h2>
+          {
+          results.map((item, id)=>(
+            <div key={id} className="card">
+
+              <a href={item.url} target="_blank">
+                {item.name || item.url}
+              </a>
+            </div>
+          ))}
+        </div>        
       </div>
   )
 }
